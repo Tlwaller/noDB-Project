@@ -1,17 +1,22 @@
 import React, {Component} from 'react'
+import './Track.css';
 
 class Track extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: this.title,
-            artist: this.artist,
-            year: this.year
+            title: this.props.title,
+            artist: this.props.artist,
+            year: this.props.year
         }
     }
     render(){
         return(
-            <li class='track'>{this.props.title} by {this.props.artist} {this.props.year}</li>
+            <li class='track'> 
+                <text>
+                    {this.state.title} by {this.state.artist} ({this.state.year})
+                </text>
+            </li>
         )
     }
 }

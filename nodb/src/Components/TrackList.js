@@ -6,18 +6,18 @@ class TrackList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: 'bbb',
-            artist: 'aaa',
-            year: '1988'
+            title: this.title,
+            artist: this.artist,
+            year: this.year
         }
     }
     render() {
         return(
             <ul id='tracklist-container'>
                 <Track
-                title={this.title}
-                artist={this.artist}
-                year={this.year}/>
+                title={'aaaa'}
+                artist={'AAAAA'}
+                year={'1998'}/>
             </ul>
         )
     }
