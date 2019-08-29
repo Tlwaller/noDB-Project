@@ -1,0 +1,22 @@
+#tracklist-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 76vh;
+    width: 40vw;
+    margin-top: 20px;
+    margin-left: 27px;
+    border-radius: 20px;
+    background-color: rgb(26, 26, 26);
+
+
+    /* find out how to make a scrollbar */
+}
+
+.track {
+    height: 100px;
+    width: 36vw;
+    margin-top: 15px;
+    background-color: rgb(180, 0, 0);
+    border-radius: 15px;
+}
