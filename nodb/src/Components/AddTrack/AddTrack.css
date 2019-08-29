@@ -1,0 +1,31 @@
+#add-stuff {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
+}
+
+#submit-btn {
+    width: 200px;
+    height: 80px;
+    border-color: rgb(211, 17, 17);
+    background-color: black;
+    color: white;
+    font-weight: 800;
+    font-size: 200%;
+    border-width: 3px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.track-entry {
+    height: 25px;
+    width: 43.5vw;
+    border-radius: 20px;
+    margin-top: 10px;
+    background-color: rgb(41, 41, 41);
+    margin-left: 10px;
+    border-color: rgb(87, 87, 87);
+    border-style: inset;
+}
+
