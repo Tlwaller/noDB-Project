@@ -9,8 +9,9 @@ body {
 
 main {
   display: flex;
+  position: relative;
   margin-top: 10px;
-  height: 700px;
+  height: 80vh;
   width: 90vw;
   border-radius: 30px;
   background-color: #3C4043;

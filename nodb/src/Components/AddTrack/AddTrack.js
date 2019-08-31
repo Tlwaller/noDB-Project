@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import './AddTrack.css'
 
 class AddTrack extends Component {
@@ -7,12 +8,14 @@ class AddTrack extends Component {
         this.state = {
             title: this.title,
             artist: this.artist,
-            year: this.year
+            year: this.year,
+            cover: this.cover
         }
         this.handleTitle = this.handleTitle.bind(this);
         this.handleArtist = this.handleArtist.bind(this);
         this.handleYear = this.handleYear.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCover = this.handleCover.bind(this);
     }
 
     handleTitle(e) {
@@ -29,18 +32,54 @@ class AddTrack extends Component {
         console.log(this.state.year);
     }
 
+    handleCover(e) {
+        this.setState({cover: e.target.value})
+        console.log(this.state.cover);
+    }
+
     handleSubmit(e) {
+        axios.post('/api/tracks', {
+            title: this.state.title,
+            artist: this.state.artist,
+            year: this.state.year,
+            cover: this.state.cover
+        })
         alert(`A track was submitted: ${this.state.title} by ${this.state.artist} (${this.state.year})`);
-        e.preventDefault();
         console.log(this.state.title)
     }
 
     render(){
         return(
             <form onSubmit={this.handleSubmit} id='add-stuff'>
-                <input className='track-entry' type="text" value={this.state.title} onChange={this.handleTitle} name="name" />
-                <input className='track-entry' type="text" value={this.state.artist} onChange={this.handleArtist} name="name" />
-                <input className='track-entry' type="text" value={this.state.year} onChange={this.handleYear} name="name" />
+                <input 
+                className='track-entry' 
+                type="text" 
+                value={this.state.title} 
+                onChange={this.handleTitle} 
+                name="name" 
+                placeholder='Add a song/album'/>
+
+                <input className='track-entry' 
+                type="text" 
+                value={this.state.artist} 
+                onChange={this.handleArtist} 
+                name="name" 
+                placeholder='Enter the artist'/>
+
+                <input className='track-entry' 
+                type="text" 
+                value={this.state.year} 
+                onChange={this.handleYear} 
+                name="name" 
+                placeholder='Enter the year published'/>
+
+                <input className='track-entry' 
+                type="text" 
+                value={this.state.cover} 
+                onChange={this.handleCover} 
+                name="name" 
+                placeholder='Enter album cover url'/>
+
                 <input id='submit-btn' type="submit" value="Submit" />
             </form>
         )

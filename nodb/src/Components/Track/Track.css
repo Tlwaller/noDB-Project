@@ -1,3 +1,26 @@
-text{
+#track-editor {
+    position: absolute;
+    z-index: 100;
+}
+
+.track-info{
     margin-left: 10px;
+}
+
+img {
+    height: 80px;
+    width: 80px;
+    margin-left: 20px;
+}
+
+.edit-btn {
+    height: 30px;
+}
+
+track {
+    display: flex;
+}
+
+.track-content {
+    position: absolute;
 }

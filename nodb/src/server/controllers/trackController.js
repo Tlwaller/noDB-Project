@@ -3,13 +3,8 @@ const tracks = [
         id: 0,
         title: 'Running Man',
         artist: 'Spring Heeled Jack',
-        year: '1997'
-    },
-    {
-        id: 1,
-        title: 'Mediocre Generica',
-        artist: 'Leftover Crack',
-        year: '2001'
+        year: '1997',
+        cover: 'https://m.media-amazon.com/images/I/71UCwE2HGTL._SS500_.jpg'
     }
 ];
 
@@ -27,28 +22,29 @@ const deleteTrack = (req, res) => {
     res.json(tracks);
 }
 
-const editTrack = (req, res) => {
-    const {text} = req.body;
+const updateTrack = (req, res) => {
+    const {title} = req.body;
     const updateID = req.params.id;
     const trackIndex = tracks.findIndex(track => track.id == updateID);
     let track = tracks[trackIndex];
 
-    console.log(track.title);
+    console.log(req.body);
 
     tracks[trackIndex] = {
         id: track.id,
-        title: text || track.text,
-        artist: text || track.text,
-        year: text || track.text
-    }
+        title: title || track.title
+    };
 
     res.json(tracks);
-    console.log(track.title);
+    console.log(track);
 };
 
 module.exports = {
     getTracks,
     addTrack,
     deleteTrack,
-    editTrack
+    updateTrack
+    // editTrackArtist,
+    // editTrackYear,
+    // editTrackCover
 };

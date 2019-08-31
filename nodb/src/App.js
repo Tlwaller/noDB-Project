@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 //components
 import Header from './Components/Header/Header';
-import SearchBar from './Components/SearBar/SearchBar';
+import SearchBar from './Components/SearchBar/SearchBar';
 import TrackList from './Components/TrackList/TrackList';
 import AddTrack from './Components/AddTrack/AddTrack'
 //styling
@@ -11,9 +11,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      trackId: this.trackId,
       title: this.title,
       artist: this.artist,
-      year: this.year
+      year: this.year,
+      cover: this.cover
     }
   }
 
