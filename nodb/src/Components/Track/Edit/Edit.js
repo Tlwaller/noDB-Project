@@ -18,26 +18,6 @@ class Edit extends Component {
         this.setState({title: value});
     }
 
-    // updateArtist(value) {
-    //     this.setState({artist: value});
-    // }
-
-    // updateYear(value) {
-    //     this.setState({year: value});
-    // }
-
-    // updateCover(value) {
-    //     this.setState({cover: value});
-    // }
-
-    // updateTitle() {
-    //     const {title} = this.state;
-    //     const {trackId, updateTitleFn, hideEdit} = this.props;
-
-    //     updateTitleFn(trackId, title);
-    //     hideEdit();
-    // }
-
     render() {
         const {hideEdit} = this.props;
         const {title, artist, year, cover} = this.state;
@@ -48,7 +28,7 @@ class Edit extends Component {
                 value={title}
                 onChange={(e) => this.updateTitle(this.state.trackId, e.target.value)}/>
 
-                {/* <textarea className='edit-textarea'
+                <textarea className='edit-textarea'
                 value={artist}
                 onChange={(e) => this.updateArtist(this.state.trackId, e.target.value)}/>
 
@@ -58,12 +38,12 @@ class Edit extends Component {
 
                 <textarea className='edit-textarea'
                 value={cover}
-                onChange={(e) => this.updateCover(this.state.trackId, e.target.value)}/> */}
+                onChange={(e) => this.updateCover(this.state.trackId, e.target.value)}/>
 
                 <div className='edit-controls'>
                     <button id='edit-controls-update'
                     className='edit-controls-btn'
-                    onClick={this.updateTrack}>Update</button>
+                    onClick={(e) => this.setState({title: e.target.value})}>Update</button>
 
                     <button id='edit-controls-cancel'
                     className='edit-controls-btn'

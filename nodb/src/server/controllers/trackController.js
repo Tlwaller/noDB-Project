@@ -23,28 +23,23 @@ const deleteTrack = (req, res) => {
 }
 
 const updateTrack = (req, res) => {
-    const {title} = req.body;
+    const {title, artist, year, cover} = req.body;
     const updateID = req.params.id;
     const trackIndex = tracks.findIndex(track => track.id == updateID);
     let track = tracks[trackIndex];
 
-    console.log(req.body);
-
     tracks[trackIndex] = {
         id: track.id,
-        title: title || track.title
-    };
-
-    res.json(tracks);
-    console.log(track);
-};
+        title: title || track.title,
+        artist: artist || track.artist,
+        year: year || track.year,
+        cover: cover || track.cover
+    }
+}
 
 module.exports = {
     getTracks,
     addTrack,
     deleteTrack,
     updateTrack
-    // editTrackArtist,
-    // editTrackYear,
-    // editTrackCover
 };

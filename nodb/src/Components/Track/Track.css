@@ -3,6 +3,10 @@
     z-index: 100;
 }
 
+#delete-btn {
+    height: 20px;
+}
+
 .track-info{
     margin-left: 10px;
 }

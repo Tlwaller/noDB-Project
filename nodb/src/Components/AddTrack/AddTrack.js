@@ -38,11 +38,15 @@ class AddTrack extends Component {
     }
 
     handleSubmit(e) {
+
+        e.preventDefault()
         axios.post('/api/tracks', {
             title: this.state.title,
             artist: this.state.artist,
             year: this.state.year,
             cover: this.state.cover
+        }).then((response) =>{
+            this.props.updateTracks(response.data)
         })
         alert(`A track was submitted: ${this.state.title} by ${this.state.artist} (${this.state.year})`);
         console.log(this.state.title)

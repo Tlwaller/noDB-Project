@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {ObjectEditor} from 'object-editor-react';
-import Edit from '../Edit/Edit';
+import Edit from './Edit/Edit';
 import './Track.css';
+import Axios from 'axios';
+import { NONAME } from 'dns';
 
 class Track extends Component {
     constructor(props) {
@@ -11,63 +12,62 @@ class Track extends Component {
             title: props.title,
             artist: props.artist,
             year: props.year,
-            cover: props.cover,
-            editing: false,
-            showMenu: false
+            cover: props.cover
         }
-        this.hideEdit = this.hideEdit.bind( this );
-        this.showEdit = this.showEdit.bind( this );
-        this.toggleMenu = this.toggleMenu.bind( this );
-        this.hideMenu = this.hideMenu.bind( this );
     }
 
-    showEdit() {
-        this.setState({editing: true, showMenu: true})
-    }
+    deleteTrack(id) {
+        Axios.delete(`/api/tracks/:${id}`).then(document.location.reload())
+    }   
 
-    hideEdit() {
-        this.setState({editing: false})
-    }
-
-    toggleMenu() {
-        this.setState({showMenu: !this.state.showMenu});
-    }
-
-    hideMenu() {
-        if (this.state.showMenu === true) {
-            this.setState({showMenu: false});
-        }
+    editTrack(id) {
+        debugger
+        Axios.put(`api/tracks/${id}`, {
+            title: this.state.title,
+            artist: this.state.artist,
+            year: this.state.year,
+            cover: this.state.cover
+        })
     }
 
     render(){
-        const {text} = this.props;
-        const {editing, showMenu} = this.state;
         return(
-            <section className="track" onClick={this.hideMenu}> 
-            <div className='track-menu-controls'>
-                <button onClick={this.toggleMenu}>Options</button>
-                <div className='track-menu' style={{display: showMenu? 'flex' : 'none'}}>
-                    <span onClick={this.showEdit}>Edit</span>
-                </div>
-            </div>
-            <div className='track content' style={{display: editing? 'flex': 'none'}}>
-                {
-                    editing
-                    ?
-                        <Edit 
-                        trackId={this.state.trackId}
-                        title={this.state.title}
-                        artist={this.state.artist}
-                        year={this.state.year}
-                        cover={this.state.cover}
-                        hideEdit={this.hideEdit}
-                        updateTitleFn={this.props.updateTitleFn}/>
-                    :
-                        <span className='title-text'>{text}</span>
-                }
-            </div>
-                
-                <img src={this.state.cover} alt='' style={{display: editing? 'none' : 'flex'}}/>
+            <section className="track"> 
+                {/* <form onSubmit={(e) => {e.preventDefault(); this.editTrack(this.state.trackId)}} id='edit-stuff'>
+                    <input 
+                    className='track-edit' 
+                    type="text" 
+                    value={this.state.title} 
+                    onChange={(e) => this.setState({title: e.target.value})} 
+                    name="name" 
+                    placeholder='Add a song/album'/>
+
+                    <input className='track-edit' 
+                    type="text" 
+                    value={this.state.artist} 
+                    onChange={(e) => this.setState({artist: e.target.value})} 
+                    name="name" 
+                    placeholder='Enter the artist'/>
+
+                    <input className='track-edit' 
+                    type="text" 
+                    value={this.state.year} 
+                    onChange={(e) => this.setState({year: e.target.value})} 
+                    name="name" 
+                    placeholder='Enter the year published'/>
+
+                    <input className='track-edit' 
+                    type="text" 
+                    value={this.state.cover} 
+                    onChange={(e) => this.setState({cover: e.target.value})} 
+                    name="name" 
+                    placeholder='Enter album cover url'/>
+
+                    <input id='update-btn' type="submit" value="Submit" />
+                </form> */}
+            <button id='delete-btn' onClick={this.deleteTrack}>Delete</button>
+                    
+                    <img src={this.state.cover} alt=''/>
                 <h3 className="track-info">
                     {this.state.title}
                     
