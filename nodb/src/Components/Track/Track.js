@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import Edit from './Edit/Edit';
 import './Track.css';
 import axios from 'axios';
-import { NONAME } from 'dns';
 
 class Track extends Component {
     constructor(props) {
@@ -36,7 +34,7 @@ class Track extends Component {
         } else this.setState({editing: false})
     }
 
-    handleSubmit(id) {
+    handleSubmit = (id, e) => {
         this.setState({editing: false});
         this.setState({showOptions: false});
         axios.put(`/api/tracks/${id}`, {
@@ -45,9 +43,15 @@ class Track extends Component {
             year: this.state.year,
             cover: this.state.cover
         }).then((response) =>{
-            this.props.updateTracks(response.data)
+            this.props.updateTracks(response.data);
+            this.setState({
+                title: '',
+                artist: '',
+                year: '',
+                cover: ''
+            });
         })
-    }
+    } 
 
     render(){
         return(

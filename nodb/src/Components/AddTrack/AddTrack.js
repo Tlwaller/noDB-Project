@@ -25,17 +25,14 @@ class AddTrack extends Component {
 
     handleArtist(e) {
         this.setState({artist: e.target.value});
-        console.log(this.state.artist);
     }
 
     handleYear(e) {
         this.setState({year: e.target.value});
-        console.log(this.state.year);
     }
 
     handleCover(e) {
         this.setState({cover: e.target.value})
-        console.log(this.state.cover);
     }
 
     handleSubmit(e) {
@@ -49,8 +46,13 @@ class AddTrack extends Component {
             cover: this.state.cover
         }).then((response) =>{
             this.props.updateTracks(response.data)
+            this.setState({
+                title: '',
+                artist: '',
+                year: '',
+                cover: ''
+            });
         })
-        console.log(this.state.id)
     }
 
     render(){
