@@ -3,8 +3,26 @@
     z-index: 100;
 }
 
-#delete-btn {
+#options-menu {
+    flex-direction: column;
+}
+
+#update-btn {
     height: 20px;
+    border-radius: 10px;
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
+
+#edit-btn, #delete-btn {
+    height: 70%;
+}
+
+button {
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(41, 41, 41);
+    color: white;
 }
 
 .track-info{
@@ -15,14 +33,6 @@ img {
     height: 80px;
     width: 80px;
     margin-left: 20px;
-}
-
-.edit-btn {
-    height: 30px;
-}
-
-track {
-    display: flex;
 }
 
 .track-content {

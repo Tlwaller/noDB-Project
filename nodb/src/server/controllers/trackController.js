@@ -1,16 +1,8 @@
-const tracks = [
-    {
-        id: 0,
-        title: 'Running Man',
-        artist: 'Spring Heeled Jack',
-        year: '1997',
-        cover: 'https://m.media-amazon.com/images/I/71UCwE2HGTL._SS500_.jpg'
-    }
-];
+const tracks = [];
 
 const getTracks = (req, res) => {
-    res.json(tracks);
-};
+{res.json(tracks)}
+}
 
 const addTrack = (req, res) => {
     tracks.push(req.body);
@@ -18,7 +10,9 @@ const addTrack = (req, res) => {
 }
 
 const deleteTrack = (req, res) => {
-    tracks.splice(+req.params.id, 1);
+    const deleteID = req.params.id;
+    trackIndex = tracks.findIndex(track => track.id == deleteID);
+    tracks.splice(trackIndex, 1);
     res.json(tracks);
 }
 
@@ -29,11 +23,11 @@ const updateTrack = (req, res) => {
     let track = tracks[trackIndex];
 
     tracks[trackIndex] = {
-        id: track.id,
-        title: title || track.title,
-        artist: artist || track.artist,
-        year: year || track.year,
-        cover: cover || track.cover
+        id: tracks.length,
+        title: title,
+        artist: artist,
+        year: year,
+        cover: cover
     }
 }
 

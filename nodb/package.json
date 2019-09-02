@@ -2,7 +2,7 @@
   "name": "nodb",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "axios": "^0.19.0",
     "express": "^4.17.1",

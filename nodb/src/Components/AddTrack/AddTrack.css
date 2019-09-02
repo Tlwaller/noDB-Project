@@ -8,6 +8,7 @@
 #submit-btn {
     width: 200px;
     height: 80px;
+    border-style: outset;
     border-color: rgb(211, 17, 17);
     background-color: black;
     color: white;
@@ -26,6 +27,7 @@
     background-color: rgb(41, 41, 41);
     margin-left: 10px;
     border-color: rgb(87, 87, 87);
+    color: whitesmoke;
     border-style: inset;
 }
 

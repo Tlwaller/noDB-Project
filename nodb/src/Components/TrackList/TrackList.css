@@ -1,15 +1,16 @@
 #tracklist-container {
     display: flex;
     justify-content: flex-start;
-
     flex-direction: column;
     height: 76vh;
     width: 40vw;
-    margin-top: 20px;
-    margin-left: 27px;
+    margin-top: 15px;
+    margin-left: 20px;
     border-radius: 20px;
+    border-style: ridge;
+    border-color: rgb(190, 190, 190);
+    color: whitesmoke;
     background-color: rgb(26, 26, 26);
-
     overflow: auto;
 }
 
@@ -20,6 +21,10 @@
     height: 100px;
     width: 36vw;
     margin-top: 10px;
+    color: whitesmoke;
     background-color: rgb(180, 0, 0);
+    border-color: rgb(255, 0, 0);
+    border-style: outset;
     border-radius: 15px;
+    scroll-padding-bottom: 10px;
 }

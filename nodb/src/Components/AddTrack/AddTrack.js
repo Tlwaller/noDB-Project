@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './AddTrack.css'
+import TrackList from '../TrackList/TrackList';
 
 class AddTrack extends Component {
     constructor(props) {
@@ -38,9 +39,10 @@ class AddTrack extends Component {
     }
 
     handleSubmit(e) {
-
-        e.preventDefault()
+        e.preventDefault();
+        this.setState({id: this.state.id + 1})
         axios.post('/api/tracks', {
+            id: this.state.id,
             title: this.state.title,
             artist: this.state.artist,
             year: this.state.year,
@@ -48,8 +50,7 @@ class AddTrack extends Component {
         }).then((response) =>{
             this.props.updateTracks(response.data)
         })
-        alert(`A track was submitted: ${this.state.title} by ${this.state.artist} (${this.state.year})`);
-        console.log(this.state.title)
+        console.log(this.state.id)
     }
 
     render(){

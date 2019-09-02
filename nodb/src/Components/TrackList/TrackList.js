@@ -7,9 +7,7 @@ function TrackList(props) {
     const tracksMapped = props.tracks.length > 0
     ? props.tracks.map((track, i) => {
         return (
-            <li className='track' key={i}>
-                <Track trackId={track.id} title={track.title} artist={track.artist} year={track.year} cover={track.cover}/>
-            </li>
+                <Track updateTracks={props.updateTracks} trackId={track.id} title={track.title} artist={track.artist} year={track.year} cover={track.cover}/>
         )
     })
     :'No tracks to display.'

@@ -31,11 +31,11 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        <SearchBar/>
+        {/* <SearchBar tracks={this.state.tracks}/> */}
           <div id='main-container'>
             <main>
-              <TrackList tracks={this.state.tracks}/>
-              <AddTrack updateTracks={this.updateTracks}/>
+              <TrackList updateTracks={this.updateTracks} tracks={this.state.tracks}/>
+              <AddTrack updateTracks={this.updateTracks} tracks={this.state.tracks}/>
             </main>
           </div>
       </div>

@@ -3,9 +3,17 @@
     width: 90vw;
     height: 30px;
     margin-top: 10px;
+    color: rgb(204, 204, 204);
     background-color: rgb(20, 20, 20);
     border-color: rgb(87, 87, 87);
     border-style: inset;
+}
+
+#search-btn {
+    margin-top: 12px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
 
 #search-bar-container {

@@ -14,5 +14,7 @@ main {
   height: 80vh;
   width: 90vw;
   border-radius: 30px;
+  border-style: outset;
+  border-color: gray;
   background-color: #3C4043;
 }
